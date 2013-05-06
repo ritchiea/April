@@ -1,14 +1,16 @@
 module April
   class Querybuilder
 
-    def self.build(config)
-      query = reporting_period config
-      query += append_conditions config if !config[:conditions].empty?
-      query
-    end
-
     class << self
+
+      def build(config)
+        query = reporting_period config
+        query += append_conditions config if !config[:conditions].empty?
+        query
+      end
+
       private
+
       def reporting_period(config)
         result = '' 
         result += "#{config[:date_column]} >= '#{config[:start_date]}' AND "
