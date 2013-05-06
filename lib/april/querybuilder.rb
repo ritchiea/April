@@ -3,7 +3,7 @@ module April
 
     def self.build(config)
       query = reporting_period config
-      query += append_conditions config if config[:conditions].present?
+      query += append_conditions config if !config[:conditions].empty?
       query
     end
 

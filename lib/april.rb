@@ -13,12 +13,9 @@ module April
 
   def self.get_report(options={})
     config = DEFAULTS.merge!(options)
-    config[:start_date] = config[:start_date]
-    config[:end_date] = config[:end_date]
     hash = {}
 
     query = Querybuilder.build config
-
     model = ( config[:klass].is_a? Class ) ? config[:klass] : eval(config[:klass].capitalize) 
     records = model.send :where, query
 
