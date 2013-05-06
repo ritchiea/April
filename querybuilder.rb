@@ -1,5 +1,7 @@
 class Querybuilder
 
+  DEFAULTS = {}
+
   def self.build(config)
     query = reporting_period config
     query += self.send("build_#{config[:klass]}".downcase.to_sym, config) if DEFAULTS.keys.include? config[:klass].to_s.downcase.to_sym

@@ -1,3 +1,4 @@
+require "#{Dir.pwd}/querybuilder"
 require 'chronic'
 
 class April
